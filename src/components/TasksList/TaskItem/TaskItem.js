@@ -1,11 +1,9 @@
 import React from 'react';
 
+import classes from './TaskItem.module.scss'
+
 function TaskItem (props) {
-  return (
-    <div>
-      <p>{props.task}</p>
-    </div>
-  )
+  return <li className={classes.TaskItem}>{props.task}</li>
 }
 
 export default TaskItem;
