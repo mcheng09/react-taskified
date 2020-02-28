@@ -1,5 +1,6 @@
 import React from 'react';
 
+import classes from './TasksList.module.scss'
 import TaskItem from './TaskItem/TaskItem';
 
 function TasksList (props) {
@@ -9,9 +10,9 @@ function TasksList (props) {
   })
 
   return (
-    <div className='tasks-list'>
+    <ul className={classes.TasksList}>
       {tasks}
-    </div>
+    </ul>
   )
 }
 
