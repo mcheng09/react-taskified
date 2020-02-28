@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import Aux from './../Aux/Aux'
+
 class Layout extends Component {
   render () {
     return (
-      <div>
-        <p>Layout Component</p>
-      </div>
+      <Aux>
+        <h1>Layout Component</h1>
+      </Aux>
     )
   }
 }
