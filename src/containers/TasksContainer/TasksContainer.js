@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import classes from './TasksContainer.module.scss'
 import UserCard from './../../components/UserCard/UserCard'
 
 class TasksContainer extends Component {
@@ -12,16 +13,18 @@ class TasksContainer extends Component {
           'Build this App',
           'Add styling to application',
           'Build out functionalities'
-        ]
+        ],
+        primaryColor: 'lightblue'
       },
       {
         id: 1,
-        name: 'Some other random person',
+        name: 'Random Guy',
         tasks: [
           'Buy some eggs',
           'Do laundry',
           'Take out the trash'
-        ]
+        ],
+        primaryColor: 'orange'
       }
     ]
   }
@@ -33,7 +36,7 @@ class TasksContainer extends Component {
     })
 
     return (
-      <div className='tasks-container'>
+      <div className={classes.TasksContainer}>
         { userCards }
       </div>
     )
