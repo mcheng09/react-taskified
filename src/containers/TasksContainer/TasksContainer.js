@@ -40,9 +40,22 @@ class TasksContainer extends Component {
     this.setState({ users: allUsers });
   }
 
+  removeTask = (userID, taskIndex) => {
+    const allUsers = [...this.state.users];
+    const user = allUsers.filter((user) => {
+      return user.id === userID
+    })
+    const userTasks = user[0].tasks;
+    console.log(taskIndex);
+    console.log(userTasks[taskIndex]);
+    userTasks.splice(taskIndex, 1)
+
+    this.setState({ users: allUsers});
+  }
+
   render () {
     const userCards = this.state.users.map(user => {
-      return <UserCard key={'user' + user.id} userData={user} addTask={this.addTask} />
+      return <UserCard key={'user' + user.id} userData={user} addTask={this.addTask} removeTask={this.removeTask} />
     })
 
     return (

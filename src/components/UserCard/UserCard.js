@@ -14,7 +14,7 @@ function UserCard (props) {
         { props.userData.name }
       </div>
 
-      <TasksList tasks={ props.userData.tasks } />
+      <TasksList tasks={ props.userData.tasks } removeTask={props.removeTask} userID={props.userData.id} />
       <AddTasks addTask={props.addTask} userID={props.userData.id} />
     </div>
   )
