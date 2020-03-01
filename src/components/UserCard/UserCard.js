@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './UserCard.module.scss';
 import TasksList from './../TasksList/TasksList';
-import AddUserCard from './../UserCard/AddUserCard/AddUserCard'
+import AddTasks from './../TasksList/AddTasks/AddTasks';
 
 function UserCard (props) {
 
@@ -15,8 +15,7 @@ function UserCard (props) {
       </div>
 
       <TasksList tasks={ props.userData.tasks } />
-
-      <AddUserCard />
+      <AddTasks />
     </div>
   )
 }
