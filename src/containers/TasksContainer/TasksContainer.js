@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
+import classes from './TasksContainer.module.scss';
 import UserCard from './../../components/UserCard/UserCard'
+
 
 class TasksContainer extends Component {
   state = {
@@ -12,7 +14,8 @@ class TasksContainer extends Component {
           'Build this App',
           'Add styling to application',
           'Build out functionalities'
-        ]
+        ],
+        primaryColor: 'lightblue'
       },
       {
         id: 1,
@@ -21,19 +24,29 @@ class TasksContainer extends Component {
           'Buy some eggs',
           'Do laundry',
           'Take out the trash'
-        ]
+        ],
+        primaryColor: 'lightgreen'
       }
     ]
   }
 
+  addTask = (userID) => {
+    let task = prompt("What's your task?");
+    const allUsers = [...this.state.users];
+    const user = allUsers.filter((user) => {
+      return user.id === userID
+    })
+    user[0].tasks.push(task);
+    this.setState({ users: allUsers });
+  }
 
   render () {
     const userCards = this.state.users.map(user => {
-      return <UserCard key={'user' + user.id} userData={user} />
+      return <UserCard key={'user' + user.id} userData={user} addTask={this.addTask} />
     })
 
     return (
-      <div className='tasks-container'>
+      <div className={classes.TasksContainer}>
         { userCards }
       </div>
     )

@@ -1,8 +1,10 @@
 import React from 'react';
 
-function AddTasks() {
+function AddTasks(props) {
   return (
-    <div>Add Tasks Component</div>
+    <div>
+      <button onClick={() => props.addTask(props.userID)}>Click me!</button>
+    </div>
   )
 }
 
