@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './UserCard.module.scss';
 import TasksList from './../TasksList/TasksList';
+import AddUserCard from './../UserCard/AddUserCard/AddUserCard'
 
 function UserCard (props) {
 
@@ -12,8 +13,10 @@ function UserCard (props) {
         style={{ backgroundColor: props.userData.primaryColor }} >
         { props.userData.name }
       </div>
-      
+
       <TasksList tasks={ props.userData.tasks } />
+
+      <AddUserCard />
     </div>
   )
 }
