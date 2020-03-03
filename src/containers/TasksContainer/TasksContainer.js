@@ -46,8 +46,6 @@ class TasksContainer extends Component {
       return user.id === userID
     })
     const userTasks = user[0].tasks;
-    console.log(taskIndex);
-    console.log(userTasks[taskIndex]);
     userTasks.splice(taskIndex, 1)
 
     this.setState({ users: allUsers});
