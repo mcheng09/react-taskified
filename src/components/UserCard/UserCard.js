@@ -15,8 +15,15 @@ function UserCard (props) {
         { props.userData.name }
       </div>
       <TasksCounter count={ props.userData.tasks.length }/>
-      <TasksList tasks={ props.userData.tasks } removeTask={props.removeTask} userID={props.userData.id} />
-      <AddTasks addTask={props.addTask} userID={props.userData.id} />
+      <TasksList
+        tasks={ props.userData.tasks }
+        removeTask={props.removeTask}
+        userID={props.userData.id}
+        numOfUsers={props.numOfUsers}
+        shiftTask={props.shiftTask} />
+      <AddTasks
+        addTask={props.addTask}
+        userID={props.userData.id} />
     </div>
   )
 }

@@ -26,12 +26,21 @@ class TasksContainer extends Component {
           'Take out the trash'
         ],
         primaryColor: 'lightgreen'
+      },
+      {
+        id: 2,
+        name: 'Jeff',
+        tasks: [
+          'OOga'
+        ],
+        primaryColor: 'lightyellow'
       }
     ]
   }
 
   addTask = (userID) => {
     let task = prompt("What's your task?");
+    if (task === '') return null;
     const allUsers = [...this.state.users];
     const user = allUsers.filter((user) => {
       return user.id === userID
@@ -51,9 +60,32 @@ class TasksContainer extends Component {
     this.setState({ users: allUsers});
   }
 
+  shiftTask = (userID, taskIndex, direction) => {
+    const allUsers = [...this.state.users];
+    const origAssignee = allUsers.filter((user) => {
+      return user.id === userID;
+    })
+    const origAssigneeTasks = origAssignee[0].tasks;
+    const copyTask = origAssigneeTasks.splice(taskIndex, 1);
+    direction === 'left' ? userID-- : userID++;
+    const newAssignee = allUsers.filter((user) => {
+      return user.id === userID;
+    })
+    newAssignee[0].tasks.push(copyTask);
+
+
+    this.setState({ users: allUsers });
+  }
+
   render () {
     const userCards = this.state.users.map(user => {
-      return <UserCard key={'user' + user.id} userData={user} addTask={this.addTask} removeTask={this.removeTask} />
+      return <UserCard
+        key={'user' + user.id}
+        userData={user}
+        numOfUsers={this.state.users.length}
+        addTask={this.addTask}
+        removeTask={this.removeTask}
+        shiftTask={this.shiftTask} />
     })
 
     return (

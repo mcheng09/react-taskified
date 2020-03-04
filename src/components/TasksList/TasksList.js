@@ -6,7 +6,14 @@ import TaskItem from './TaskItem/TaskItem';
 function TasksList (props) {
 
   const tasks = props.tasks.map((task, i) => {
-    return <TaskItem key={ 'task' + i } task={ task } taskIndex={ i } removeTask={props.removeTask} userID={props.userID}/>
+    return <TaskItem
+      key={ 'task' + i }
+      task={ task }
+      taskIndex={ i }
+      removeTask={props.removeTask}
+      shiftTask={props.shiftTask}
+      numOfUsers={props.numOfUsers} 
+      userID={props.userID} />
   })
 
   return (

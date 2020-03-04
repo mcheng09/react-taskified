@@ -2,11 +2,11 @@ import React from 'react';
 
 import classes from './ShiftTasks.module.scss'
 
-function ShiftTasks () {
+function ShiftTasks (props) {
   return (
     <div className={classes.ShiftTasks}>
-      <div>{'<'}</div>
-      <div>{'>'}</div>
+      { props.userID === 0 ? null : <div onClick={() => props.shiftTask(props.userID, props.taskIndex, 'left')}>{'<'}</div> }
+      { props.userID === props.numOfUsers - 1 ? null : <div onClick={() => props.shiftTask(props.userID, props.taskIndex, 'right')}>{'>'}</div> }
     </div>
   )
 }
