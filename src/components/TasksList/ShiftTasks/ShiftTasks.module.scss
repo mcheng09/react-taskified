@@ -1,0 +1,14 @@
+.ShiftTasks {
+  div {
+    text-align: center;
+    background: lightgrey;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+  }
+
+  div:hover {
+    cursor: pointer;
+  }
+}
