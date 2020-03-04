@@ -1,12 +1,15 @@
 .TaskItem {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 
-  div {
-    padding: 12px 8px;
-    margin: 8px 0;
-    background: lightgrey;
-    width: 180px;
-    min-width: 180px;
-  }
+}
+
+.Task {
+  padding: 12px 8px;
+  margin: 8px 0;
+  background: lightgrey;
+  width: 140px;
+  min-width: 140px;
 }

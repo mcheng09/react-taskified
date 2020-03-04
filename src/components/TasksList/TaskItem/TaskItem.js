@@ -2,11 +2,13 @@ import React from 'react';
 
 import classes from './TaskItem.module.scss'
 import RemoveTasks from './../RemoveTasks/RemoveTasks';
+import ShiftTasks from './../ShiftTasks/ShiftTasks';
 
 function TaskItem (props) {
   return (
     <li className={classes.TaskItem}>
-      <div>{props.task}</div>
+      <div className={classes.Task}>{props.task}</div>
+      <ShiftTasks />
       <RemoveTasks removeTask={props.removeTask} userID={props.userID} taskIndex={props.taskIndex} />
     </li>
   )
