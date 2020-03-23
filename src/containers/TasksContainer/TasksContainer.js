@@ -31,11 +31,27 @@ class TasksContainer extends Component {
         id: 2,
         name: 'Jeff',
         tasks: [
-          'OOga'
+          'Lolz!'
         ],
         primaryColor: 'lightyellow'
       }
-    ]
+    ],
+    userIDCount: 3
+  }
+
+  addUser = () => {
+    let newUser = prompt("Who's joining us?");
+    const allUsers = [...this.state.users];
+    let userIDCount = this.state.userIDCount;
+    allUsers.push({
+      id: userIDCount,
+      name: newUser,
+      tasks: []
+    })
+    userIDCount++;
+
+    this.setState({ users: allUsers });
+    this.setState({ userIDCount: userIDCount })
   }
 
   addTask = (userID) => {
@@ -91,6 +107,7 @@ class TasksContainer extends Component {
     return (
       <div className={classes.TasksContainer}>
         { userCards }
+        <button onClick={this.addUser}>Add User</button>
       </div>
     )
   }
